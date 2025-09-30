@@ -1,0 +1,24 @@
+Ejecutar Servidor
+python -m uvicorn main:app --reload
+
+Acceder al sitio
+http://localhost:8000/docs
+
+Paso a seguir
+Abrí http://localhost:8000/docs
+Buscá el endpoint /diagnostico
+Hacé clic en "Try it out"
+Pegá el JSON en el campo de entrada
+Hacé clic en "Execute"
+
+Instalaciones
+pip install openai
+pip install fastapi uvicorn
+python.exe -m pip install fastapi uvicorn
+pip install google-generativeai python-dotenv
+pip install speedtest-cli
+
+
+Api Gemini
+https://aistudio.google.com/api-keys
+Speedtest.net

@@ -1,0 +1,84 @@
+[
+    {
+        "causa": "Problema con el router",
+        "condiciones": {
+            "sin_internet": true,
+            "router_luces_normales": false
+        },
+        "sugerencias": [
+            "Reiniciar el router.",
+            "Verificar si las luces cambian.",
+            "Probar con otro cable de red."
+        ]
+    },
+    {
+        "causa": "Problema con la red Wi-Fi",
+        "condiciones": {
+            "sin_internet": true,
+            "wifi_visible": false
+        },
+        "sugerencias": [
+            "Verificar si el Wi-Fi está activado.",
+            "Reiniciar el router.",
+            "Probar conectarse desde otro dispositivo."
+        ]
+    },
+    {
+        "causa": "Saturación de red",
+        "condiciones": {
+            "conexion_lenta": true,
+            "otros_dispositivos_conectados": true
+        },
+        "sugerencias": [
+            "Reduce el número de dispositivos conectados.",
+            "Prioriza el uso de red para tareas importantes.",
+            "Considera actualizar tu plan de internet."
+        ]
+    },
+    {
+        "causa": "Problema con el proveedor",
+        "condiciones": {
+            "sin_internet": true,
+            "router_luces_normales": true,
+            "cable_conectado": true
+        },
+        "sugerencias": [
+            "Contactar al proveedor de internet.",
+            "Verificar si hay cortes de servicio en la zona.",
+            "Solicitar asistencia técnica."
+        ]
+    },
+    {
+        "causa": "Interferencia o desconexión intermitente",
+        "condiciones": {
+            "desconexion_intermittente": true
+        },
+        "sugerencias": [
+            "Ubicar el router lejos de fuentes de interferencia.",
+            "Actualizar el firmware del router.",
+            "Cambiar el canal de transmisión Wi-Fi."
+        ]
+    },
+    {
+        "causa": "Velocidad de descarga insuficiente",
+        "condiciones": {
+            "velocidad_bajada": "< 5"
+        },
+        "sugerencias": [
+            "Verifica si hay dispositivos consumiendo ancho de banda.",
+            "Contacta al proveedor para revisar tu plan.",
+            "Realiza pruebas en distintos horarios."
+        ]
+    },
+    {
+        "causa": "Latencia elevada en la red",
+        "condiciones": {
+            "velocidad_ping": "> 100"
+        },
+        "sugerencias": [
+            "Evita usar Wi-Fi si es posible, conecta por cable.",
+            "Cierra aplicaciones que usen mucho ancho de banda.",
+            "Consulta con tu proveedor sobre estabilidad de conexión."
+        ]
+    }
+]
