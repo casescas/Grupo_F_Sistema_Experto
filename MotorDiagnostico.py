@@ -59,10 +59,10 @@ class MotorDiagnosticoDesdeArchivo:
                         "velocidad_subida": self.hechos.velocidad_subida
                     }
             
-            # Si ninguna regla coincide, usar Gemini para sugerencias   
+            #Si ninguna regla coincide, usar Gemini para sugerencias   
             gemini = GeminiConnector()
             respuesta_gemini = gemini.consultar_gemini(self.hechos)
-
+            
             return {
                 "causa_probable": "Diagnóstico no concluyente",
                 "sugerencias": [

@@ -21,4 +21,5 @@ pip install speedtest-cli
 
 Api Gemini
 https://aistudio.google.com/api-keys
+pip install --upgrade google-generativeai
 Speedtest.net
