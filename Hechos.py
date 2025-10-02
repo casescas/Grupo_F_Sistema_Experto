@@ -10,3 +10,4 @@ class HechosObservables(BaseModel):
     otros_dispositivos_conectados: bool
     router_luces_normales: bool
     wifi_visible: bool
+

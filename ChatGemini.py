@@ -54,3 +54,29 @@ class GeminiConnector:
         except Exception as error:
             Controller_Error.Logs_Error.CapturarEvento("GeminiConnector", "consultar_gemini", str(error))
             return {"respuesta": "Ocurrió un error al consultar a Gemini."}
+
+    def consultar_gemini_con_pasos(self, hechos, causa=None):
+        try:
+            if not self.model:
+                return {"respuesta": "El modelo Gemini no está disponible."}
+            
+            prompt = (
+                "Estoy con un sistema experto para diagnosticar fallas en redes domésticas.\n"
+                "Hechos observables:\n"
+            )
+            for atributo, valor in hechos.dict().items():
+                prompt += f"- {atributo.replace('_', ' ')}: {'Sí' if valor else 'No'}\n"
+    
+            if causa:
+                prompt += f"\nLa causa probable detectada es: {causa}.\n"
+    
+            prompt += (
+                "\n¿Podrías detallarme en 5 pasos como resolverlo, resumidos, total 30 palabras?"
+            )
+    
+            response = self.model.generate_content(prompt)
+            return {"respuesta": response.text}
+        
+        except Exception as error:
+            Controller_Error.Logs_Error.CapturarEvento("GeminiConnector", "consultar_gemini_con_pasos", str(error))
+            return {"respuesta": "Ocurrió un error al consultar a Gemini."}

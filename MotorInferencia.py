@@ -12,10 +12,10 @@ class MotorDiagnosticoDesdeArchivo:
         #Instanciamos para realizar pruebas de velocidad.
         self.speedtest = SpeedTestConexion()
         #Cargamos las reglas desde el archivo JSON (reglas_diagnostico_red.json)
-        self.reglas = self._cargar_reglas(ruta_reglas)
+        self.reglas = self.cargar_reglas(ruta_reglas)
 
     #Cargar reglas desde un archivo JSON y manejar errores.
-    def _cargar_reglas(self, ruta):
+    def cargar_reglas(self, ruta):
         try:
             #Abrimos y leemos el archivo JSON (reglas_diagnostico_red.json) con las reglas.
             with open(ruta, "r", encoding="utf-8") as f:
@@ -40,11 +40,11 @@ class MotorDiagnosticoDesdeArchivo:
             #Evaluamos por iteracion cada regla para ver si coinciden con los hechos observables.
             for regla in self.reglas:
                 #llamamos al metodo para evaluar si la regla coincide con los hechos y resultados de velocidad.
-                if self._evaluar_regla(regla, resultados):
+                if self.evaluar_regla(regla, resultados):
                    #Si la regla coincide, formamos la respuesta y la retornamos.
-                   return self._formar_respuesta(regla, resultados)
+                   return self.formar_respuesta(regla, resultados)
             #Si ninguna regla coincide, consultamos a Gemini para obtener sugerencias adicionales.
-            return self._respuesta_gemini(resultados)
+            return self.respuesta_gemini(resultados)
         #Capturamos el error, se lo enviamos a  la clase Controller_Error.py para que lo registre en Logs.
         except Exception as error:
             Controller_Error.Logs_Error.CapturarEvento(
@@ -62,7 +62,7 @@ class MotorDiagnosticoDesdeArchivo:
             }
 
     #Metodo para evaluar si una regla coincide con los hechos observables y resultados de velocidad.
-    def _evaluar_regla(self, regla, resultados):
+    def evaluar_regla(self, regla, resultados):
         condiciones = regla.get("condiciones", {})
         for clave, valor in condiciones.items():
             #Obtenemos el valor actual del hecho observable o resultado de velocidad.
@@ -93,28 +93,55 @@ class MotorDiagnosticoDesdeArchivo:
         return True
 
     #Metodo para formar la respuesta basada en la regla coincidente y resultados de velocidad.
-    def _formar_respuesta(self, regla, resultados):
+  #  def _formar_respuesta(self, regla, resultados):
+   #     return {
+    #        "causa_probable": regla.get("causa", "Causa desconocida"),
+     #       "sugerencias": regla.get("sugerencias", []),
+      #      "velocidad_ping": resultados["ping"],
+       #     "velocidad_bajada": resultados["bajada"],
+        #    "velocidad_subida": resultados["subida"]
+        #}
+    def formar_respuesta(self, regla, resultados):
+        gemini = GeminiConnector()
+        respuesta_gemini = gemini.consultar_gemini_con_pasos(self.hechos, causa=regla.get("causa"))
+    
         return {
             "causa_probable": regla.get("causa", "Causa desconocida"),
-            "sugerencias": regla.get("sugerencias", []),
+            "sugerencias": regla.get("sugerencias", []) + [respuesta_gemini.get("respuesta", "")],
             "velocidad_ping": resultados["ping"],
             "velocidad_bajada": resultados["bajada"],
             "velocidad_subida": resultados["subida"]
         }
 
     #Metodo para obtener una respuesta de Gemini si ninguna regla coincide.
-    def _respuesta_gemini(self, resultados):
+ #   def _respuesta_gemini(self, resultados):
         #Instanciamos la clase GeminiConnector para consultar a Gemini.
-        gemini = GeminiConnector()
+  #      gemini = GeminiConnector()
         #Consultamos a Gemini pasando los hechos observables.
-        respuesta = gemini.consultar_gemini(self.hechos)
+   #     respuesta = gemini.consultar_gemini(self.hechos)
 
         #Retornamos la respuesta de Gemini junto con los resultados de velocidad.
+    #    return {
+     #       "causa_probable": "No pudimos darte un Diagnóstico preciso.",
+      #      "sugerencias": [
+      #          "Verifica todos los componentes de tu red.",
+      #          "Vamos a solicita asistencia técnica expecializada.",
+      #          respuesta.get("respuesta", "No se pudo obtener respuesta de Gemini.")
+      #      ],
+     #       "velocidad_ping": resultados["ping"],
+      #      "velocidad_bajada": resultados["bajada"],
+      #      "velocidad_subida": resultados["subida"]
+      #  }
+
+    def respuesta_gemini(self, resultados):
+        gemini = GeminiConnector()
+        respuesta = gemini.consultar_gemini_con_pasos(self.hechos)
+    
         return {
             "causa_probable": "No pudimos darte un Diagnóstico preciso.",
             "sugerencias": [
                 "Verifica todos los componentes de tu red.",
-                "Vamos a solicita asistencia técnica expecializada.",
+                "Vamos a solicitar asistencia técnica especializada.",
                 respuesta.get("respuesta", "No se pudo obtener respuesta de Gemini.")
             ],
             "velocidad_ping": resultados["ping"],

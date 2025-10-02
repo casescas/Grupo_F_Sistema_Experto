@@ -10,8 +10,6 @@ app = FastAPI(
     version="0.1.1",
     description="Alumnos: Cristian Couto, Valeria Villega, Diego Estrada")
 
-
-
 #Endpoint para diagnóstico de fallas de red
 @app.post("/diagnostico")
 
