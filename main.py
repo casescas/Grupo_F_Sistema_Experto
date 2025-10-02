@@ -3,7 +3,14 @@ from Hechos import HechosObservables
 from MotorInferencia import MotorDiagnosticoDesdeArchivo
 
 #titulo del API via FastAPI
-app = FastAPI(title="Diagnóstico de fallas en redes domésticas - Sistema Experto", version="0,1,1")
+#app = FastAPI(title="Diagnóstico de fallas en redes domésticas - Sistema Experto", version="0.1.1")
+
+app = FastAPI(
+    title="Diagnóstico de fallas en redes domésticas - Sistema Experto",
+    version="0.1.1",
+    description="Alumnos: Cristian Couto, Valeria Villega, Diego Estrada")
+
+
 
 #Endpoint para diagnóstico de fallas de red
 @app.post("/diagnostico")
