@@ -10,10 +10,10 @@ class GeminiConnector:
             #Cargar manualmente el archivo.env
             self.env_vars = dotenv_values("archivo.env")          
             self.api_key = self.env_vars.get("GEMINI_API_KEY")
-            
+
             if not self.api_key:
                 raise ValueError("No se encontró la clave de API de Gemini en el entorno.")
-            
+
             genai.configure(api_key=self.api_key)
             self.model = genai.GenerativeModel(model_name="models/gemini-2.5-pro")
         except Exception as error:
@@ -56,7 +56,7 @@ class GeminiConnector:
 #class HechosSimulados:
 #    def dict(self):
 #        return {
-#            "internet_funciona": False,
+#           "internet_funciona": False,
 #            "router_encendido": True,
 #            "wifi_visible": True,
 #            "dispositivo_conectado": False,

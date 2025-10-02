@@ -18,7 +18,6 @@ python.exe -m pip install fastapi uvicorn
 pip install google-generativeai python-dotenv
 pip install speedtest-cli
 
-
 Api Gemini
 https://aistudio.google.com/api-keys
 pip install --upgrade google-generativeai

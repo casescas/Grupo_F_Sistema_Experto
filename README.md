@@ -10,5 +10,4 @@ Sistema experto que detecte problemas de red (cable, Wi-Fi, router, proveedor) e
 • Endpoint FastAPI para pruebas con varios dispositivos
 
 ## Desafío:
-Permitir que el sistema genere sugerencias paso a paso para resolución.
-"""
+    Permitir que el sistema genere sugerencias paso a paso para resolución.

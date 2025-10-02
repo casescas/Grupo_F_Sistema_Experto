@@ -1,13 +1,17 @@
 from fastapi import FastAPI
 from Hechos import HechosObservables
-from MotorDiagnostico import MotorDiagnosticoDesdeArchivo
+from MotorInferencia import MotorDiagnosticoDesdeArchivo
 
-app = FastAPI(title="Diagnóstico de Red - Sistema Experto")
+#titulo del API via FastAPI
+app = FastAPI(title="Diagnóstico de fallas en redes domésticas - Sistema Experto", version="0,1,1")
 
+#Endpoint para diagnóstico de fallas de red
 @app.post("/diagnostico")
 
-#metodo para iniciar el diagnóstico
+#Metodo principal del API
 def diagnostico(hechos: HechosObservables):
+    #Creamos la instancia del motor de diagnóstico
     motor = MotorDiagnosticoDesdeArchivo(hechos)
+    #Realizamos el diagnóstico
     resultado = motor.diagnosticar()
     return resultado

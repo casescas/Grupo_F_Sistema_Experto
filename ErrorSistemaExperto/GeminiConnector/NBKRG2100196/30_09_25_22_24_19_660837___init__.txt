@@ -1,2 +1,0 @@
-Log de Evento errores - GeminiConnector
-No se encontró la clave de API de Gemini en el entorno.
