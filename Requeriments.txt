@@ -1,0 +1,6 @@
+mysql-connector-python==8.0.33
+pyodbc==4.0.39
+google-generativeai>=0.3.0
+python-dotenv>=1.0.0
+speedtest-cli>=2.1.3
+

@@ -1,0 +1,64 @@
+[
+    {
+        "causa": "Problema con el router",
+        "condiciones": {
+            "sin_internet": true,
+            "router_luces_normales": false
+        },
+        "sugerencias": [
+            "Reiniciar el router.",
+            "Verificar si las luces cambian.",
+            "Probar con otro cable de red."
+        ]
+    },
+    {
+        "causa": "Problema con la red Wi-Fi",
+        "condiciones": {
+            "sin_internet": true,
+            "wifi_visible": false
+        },
+        "sugerencias": [
+            "Verificar si el Wi-Fi está activado.",
+            "Reiniciar el router.",
+            "Probar conectarse desde otro dispositivo."
+        ]
+    },
+    {
+        "causa": "Saturación de red",
+        "condiciones": {
+            "conexion_lenta": true, 
+            "otros_dispositivos_conectados": true
+        },
+        "sugerencias": [
+            "1* Verificar si el router está encendido", 
+            "2* Revisar cuántos dispositivos están conectados",
+            "3* Desconectar dispositivos innecesarios",
+            "4* Cambiar la ubicación del router para mejor señal",  
+            "5* Reiniciar el router"
+        ]
+    },
+    {
+        "causa": "Problema con el proveedor",
+        "condiciones": {
+            "sin_internet": true,
+            "router_luces_normales": true,
+            "cable_conectado": true
+        },
+        "sugerencias": [
+            "Contactar al proveedor de internet.",
+            "Verificar si hay cortes de servicio en la zona.",
+            "Solicitar asistencia técnica."
+        ]
+    },
+    {
+        "causa": "Interferencia o desconexión intermitente",
+        "condiciones": {
+            "desconexion_intermittente": true
+        },
+        "sugerencias": [
+            "Ubicar el router lejos de fuentes de interferencia.",
+            "Actualizar el firmware del router.",
+            "Cambiar el canal de transmisión Wi-Fi."
+        ]
+    }
+]
