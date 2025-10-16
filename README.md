@@ -2,7 +2,7 @@
 
 ### Materia: Desarrollo de Sistemas IA
 ### Profesor: Prof. Horacio Bogarín
-### Grupo F: Cristian Couto, Valeria Villega, Estrada Diego
+### Grupo F: Cristian Couto, Valeria Villegas, Estrada Diego
 
 ---
 
