@@ -8,7 +8,7 @@
 # --------------------------------------------------------
 
 from functools import lru_cache        # Decorador para guardar en caché funciones (evita recalcular)
-from pydantic import BaseSettings      # Clase que permite leer variables de entorno automáticamente
+from pydantic_settings import BaseSettings  # Nuevo import - Clase que permite leer variables de entorno automáticamente
 from typing import List                # Para declarar listas tipadas
 import os                              # Para operaciones básicas con el sistema
 
