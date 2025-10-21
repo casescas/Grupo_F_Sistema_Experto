@@ -37,7 +37,7 @@ Organizar el entorno del proyecto para dejar una **base estable, limpia y funcio
 
 ---
 
-## 🗂️ Nueva estructura del proyecto
+### 🗂️ Nueva estructura del proyecto
 
 Grupo_F_Sistema_Experto/
 │
