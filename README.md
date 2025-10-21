@@ -39,22 +39,24 @@ Organizar el entorno del proyecto para dejar una **base estable, limpia y funcio
 
 ### 🗂️ Nueva estructura del proyecto
 
+```text
 Grupo_F_Sistema_Experto/
 │
 ├── backend/
-│ ├── main.py
-│ ├── api/
-│ ├── rules/
-│ ├── utils/
-│ └── requirements.txt
+│   ├── main.py
+│   ├── api/
+│   ├── rules/
+│   ├── utils/
+│   └── requirements.txt
 │
 ├── frontend/
-│ └── (en desarrollo)
+│   └── (en desarrollo)
 │
 ├── docs/
-│ └── README_valeria-dev2.md
+│   └── README_valeria-dev2.md
 │
 └── tests/
+
 
 
 ---
