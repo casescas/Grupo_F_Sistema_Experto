@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from Hechos import HechosObservables
+from hechos import HechosObservables  # ✅ en minúsculas
+
 from MotorInferencia import MotorDiagnosticoDesdeArchivo
 
 #titulo del API via FastAPI

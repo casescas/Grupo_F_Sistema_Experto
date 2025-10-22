@@ -1,34 +1,27 @@
-import datetime
 import os
-from socket import gethostbyname, gethostname
-import sys
+import datetime
 
-class Logs_Error:   
+class Logs_Error:
+    """
+    Clase para registrar errores del sistema experto en un archivo de log.
+    """
 
-    #metodo para capturar evento de error y crear logs
     @staticmethod
-    def CapturarEvento(_aplicativoTraductor, _clase, _evento):
-        formatoFechaHorastandar = '%d_%m_%y_%H_%M_%S_%f'
-        _fechaactual = datetime.datetime.now().strftime(formatoFechaHorastandar)
-        Logs_Error.CrearInfoLogNuevo(_aplicativoTraductor, _fechaactual, _clase, _evento)
-        return True
+    def CapturarEvento(clase, metodo, mensaje):
+        """
+        Registra un evento o error en el archivo logs/errores.log
+        """
+        try:
+            # Crear carpeta de logs si no existe
+            log_dir = "logs"
+            os.makedirs(log_dir, exist_ok=True)
 
-    #metodo para crear directorio para aplicativos - traductores
-    @staticmethod
-    def CrearDirectorio(_aplictivonombre):
-        absolutoPath = os.path.dirname(os.path.abspath(sys.argv[0]))
-        _rutanueva = 'ErrorSistemaExperto'
-        relativoPath = os.path.join(_rutanueva, _aplictivonombre)
-        fullPath = os.path.join(absolutoPath, relativoPath)
-        if not os.path.exists(fullPath):
-            os.makedirs(fullPath)
-        return fullPath
+            # Ruta completa del archivo de log
+            ruta = os.path.join(log_dir, "errores.log")
 
-    #metodo para el diseño de log ingresando el contenido dentro y titulo
-    @staticmethod
-    def CrearInfoLogNuevo(_aplicativoTraductor, _fechaactual, _clase, _evento):
-        _rutanueva = Logs_Error.CrearDirectorio(_aplicativoTraductor +"\\"+ gethostname())
-        log_file_path = os.path.join(_rutanueva, f"{_fechaactual}_{_clase}.txt")
-        with open(log_file_path, "w") as file:
-            file.write(f"Log de Evento errores - {_aplicativoTraductor}\n")
-            file.write(str(_evento))
+            # Escribir el error con marca de tiempo
+            with open(ruta, "a", encoding="utf-8") as f:
+                f.write(f"[{datetime.datetime.now()}] {clase}.{metodo}: {mensaje}\n")
+
+        except Exception as e:
+            print(f"Error al registrar evento: {e}")

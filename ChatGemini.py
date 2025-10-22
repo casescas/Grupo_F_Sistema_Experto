@@ -3,50 +3,84 @@ import google.generativeai as genai
 import Controller_Error
 from dotenv import dotenv_values
 
+
 class GeminiConnector:
-    #Metodo constructor para inicializar la conexión con Gemini
+    """
+    Clase encargada de comunicarse con la API de Gemini
+    para obtener sugerencias inteligentes cuando las reglas no encuentran una causa.
+    """
+
     def __init__(self):
         try:
-            #Cargar manualmente el archivo.env
+            # Cargar variables desde archivo .env
             self.env_vars = dotenv_values("archivo.env")
             self.api_key = self.env_vars.get("GEMINI_API_KEY")
-            #Verificar si la clave de API está presente
+
             if not self.api_key:
-                raise ValueError("No se encontró la clave de API de Gemini en el entorno.")
-            #Configurar la clave de API para google.generativeai
+                raise ValueError("No se encontró la clave GEMINI_API_KEY en archivo.env")
+
+            # Configurar modelo Gemini
             genai.configure(api_key=self.api_key)
             self.model = genai.GenerativeModel(model_name="models/gemini-2.5-pro")
-        #Capturar y registrar cualquier error durante la inicialización
+
         except Exception as error:
-            #Capturamos el error, se lo enviamos a  la clase Controller_Error.py para que lo registre en Logs.
-            Controller_Error.Logs_Error.CapturarEvento("GeminiConnector", "__init__", str(error))
+            Controller_Error.Logs_Error.CapturarEvento(
+                clase="GeminiConnector",
+                metodo="__init__",
+                mensaje=str(error)
+            )
             self.model = None
 
+    def construir_prompt(self, hechos, causa=None):
+        """
+        Genera el texto que se enviará al modelo Gemini basado en los hechos observables.
+        """
+        try:
+            prompt = (
+                "Estoy utilizando un sistema experto para diagnosticar fallas en redes domésticas.\n"
+                "Hechos observables detectados:\n"
+            )
 
-    #Metodo para consultar a Gemini con pasos detallados
+            for atributo, valor in hechos.model_dump().items():
+                if isinstance(valor, bool):
+                    prompt += f"- {atributo.replace('_', ' ')}: {'Sí' if valor else 'No'}\n"
+                else:
+                    prompt += f"- {atributo.replace('_', ' ')}: {valor}\n"
+
+            if causa:
+                prompt += f"\nCausa probable detectada: {causa}\n"
+
+            prompt += "\nExplica brevemente en 5 pasos cómo resolver el problema (máx. 30 palabras)."
+            return prompt
+
+        except Exception as error:
+            Controller_Error.Logs_Error.CapturarEvento(
+                clase="GeminiConnector",
+                metodo="construir_prompt",
+                mensaje=str(error)
+            )
+            return None
+
     def consultar_gemini_con_pasos(self, hechos, causa=None):
+        """
+        Consulta el modelo Gemini con los hechos observables
+        y obtiene una respuesta breve con pasos de resolución.
+        """
         try:
             if not self.model:
                 return {"respuesta": "El modelo Gemini no está disponible."}
-            
-            prompt = (
-                "Estoy con un sistema experto para diagnosticar fallas en redes domésticas.\n"
-                "Hechos observables:\n"
-            )
-            for atributo, valor in hechos.dict().items():
-                prompt += f"- {atributo.replace('_', ' ')}: {'Sí' if valor else 'No'}\n"
-    
-            if causa:
-                prompt += f"\nLa causa probable detectada es: {causa}.\n"
-    
-            prompt += (
-                "\n¿Podrías detallarme en 5 pasos como resolverlo, resumidos, total 30 palabras?"
-            )
-    
-            response = self.model.generate_content(prompt)
-            
+
+            prompt = self.construir_prompt(hechos, causa)
+            if not prompt:
+                return {"respuesta": "No se pudo construir el prompt correctamente."}
+
+            response = self.model.generate_content(prompt)  # type: ignore
             return {"respuesta": response.text}
-        
+
         except Exception as error:
-            Controller_Error.Logs_Error.CapturarEvento("GeminiConnector", "consultar_gemini_con_pasos", str(error))
+            Controller_Error.Logs_Error.CapturarEvento(
+                clase="GeminiConnector",
+                metodo="consultar_gemini_con_pasos",
+                mensaje=str(error)
+            )
             return {"respuesta": "Ocurrió un error al consultar a Gemini."}

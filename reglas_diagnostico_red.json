@@ -26,15 +26,15 @@
     {
         "causa": "Saturación de red",
         "condiciones": {
-            "conexion_lenta": true, 
+            "conexion_lenta": true,
             "otros_dispositivos_conectados": true
         },
         "sugerencias": [
-            "1* Verificar si el router está encendido", 
-            "2* Revisar cuántos dispositivos están conectados",
-            "3* Desconectar dispositivos innecesarios",
-            "4* Cambiar la ubicación del router para mejor señal",  
-            "5* Reiniciar el router"
+            "1️⃣ Verificar si el router está encendido.",
+            "2️⃣ Revisar cuántos dispositivos están conectados.",
+            "3️⃣ Desconectar dispositivos innecesarios.",
+            "4️⃣ Cambiar la ubicación del router para mejor señal.",
+            "5️⃣ Reiniciar el router."
         ]
     },
     {
@@ -42,7 +42,7 @@
         "condiciones": {
             "sin_internet": true,
             "router_luces_normales": true,
-            "cable_conectado": true
+            "cable_ethernet_usado": true
         },
         "sugerencias": [
             "Contactar al proveedor de internet.",
