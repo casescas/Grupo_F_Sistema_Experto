@@ -17,8 +17,15 @@ class MotorDiagnosticoDesdeArchivo:
         self.reglas = self.cargar_reglas(ruta_reglas)
 
         try:
-            self.hechos = HechosObservables(**hechos_data)
-        except ValidationError as e:
+            # ✅ Acepta tanto un dict como una instancia de HechosObservables
+            if isinstance(hechos_data, HechosObservables):
+                self.hechos = hechos_data
+            elif isinstance(hechos_data, dict):
+                self.hechos = HechosObservables(**hechos_data)
+            else:
+                raise TypeError(f"Tipo no válido para hechos_data: {type(hechos_data)}")
+
+        except (ValidationError, TypeError, Exception) as e:
             Controller_Error.Logs_Error.CapturarEvento(
                 clase="MotorDiagnosticoDesdeArchivo",
                 metodo="__init__",
@@ -48,11 +55,11 @@ class MotorDiagnosticoDesdeArchivo:
 
             hechos_dict = self.hechos.model_dump(exclude_none=True)
 
-            # 🔹 Este bloque estaba mal indentado antes
             for regla in self.reglas:
                 if self.evaluar_regla(hechos_dict, regla):
                     return self.formar_respuesta(regla)
 
+            # Si no hay coincidencias, consulta Gemini
             return self.respuesta_gemini()
 
         except Exception as error:
