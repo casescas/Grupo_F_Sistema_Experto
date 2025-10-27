@@ -1,10 +1,11 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from hechos import HechosObservables
-from MotorInferencia import MotorDiagnosticoDesdeArchivo
+from MotorInferencia import MotorInferencia
 from Controller_Error import Logs_Error
 from SpeedTest import run_speedtest
 from fastapi.middleware.cors import CORSMiddleware
 import datetime
+
 
 # ======================================================
 # CONFIGURACIÓN FASTAPI
@@ -35,29 +36,19 @@ app.add_middleware(
 # ENDPOINT: DIAGNÓSTICO PRINCIPAL
 # ======================================================
 @app.post("/diagnostico")
-def diagnostico(hechos: HechosObservables):
-    """
-    Endpoint para realizar el diagnóstico de fallas en redes domésticas.
-    """
+async def diagnostico(request: Request):
     try:
-        hechos_dict = hechos.model_dump()
-        motor = MotorDiagnosticoDesdeArchivo(hechos_dict)
+        hechos_dict = await request.json()
+        motor = MotorInferencia(hechos_dict)
         resultado = motor.diagnosticar()
 
         return {
             "status": "OK",
-            "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "diagnostico": resultado
         }
 
     except Exception as e:
-        Logs_Error.CapturarEvento("MainFlash", "diagnostico", str(e))
-        return {
-            "status": "ERROR",
-            "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "detalle": "Se produjo un error durante el diagnóstico.",
-            "debug": str(e)
-        }
+        ...
 
 # ======================================================
 # ENDPOINT: SPEEDTEST
@@ -97,4 +88,5 @@ def estado():
         "status": "Servidor activo",
         "version": "0.3.0",
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
     }

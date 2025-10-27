@@ -81,3 +81,31 @@ repetidor_cubre_zona_ok
 [2025-10-26 22:10:11] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 [2025-10-26 22:20:57] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 [2025-10-26 22:21:26] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 23:05:31] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:05:39] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:05:42] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:06:13] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:06:57] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:08:40] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:08:46] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:16:17] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:16:28] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:17:07] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:17:31] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:32:04] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:32:18] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:32:48] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:34:36] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:37:34] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:37:37] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:37:41] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:38:44] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:43:00] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:46:17] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:34] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:36] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:39] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:42] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:44] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:50:25] [ERROR] SpeedTestConexion.medir: Expecting value: line 1 column 1 (char 0)
+[2025-10-26 23:54:24] [ERROR] SpeedTestConexion.medir: Expecting value: line 1 column 1 (char 0)
