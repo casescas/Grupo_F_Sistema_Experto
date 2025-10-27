@@ -1,15 +1,14 @@
-from hechos import HechosObservables
-from MotorInferencia import MotorDiagnosticoDesdeArchivo
+from MotorInferencia import MotorInferencia
 from Controller_Error import Logs_Error  # Para registrar errores
 from ChatGemini import GeminiConnector   # Para usar Gemini si no hay coincidencias
-from SpeedTest import SpeedTestConexion  # Si querés usar prueba de velocidad (opcional)
+from SpeedTest import SpeedTestConexion  # Prueba de velocidad (opcional)
 
 def main():
     print("=== Diagnóstico de fallas en redes domésticas ===")
     print("Ingrese los hechos observables (responda con 'true' o 'false'):")
 
     try:
-        # Simulación de entrada de hechos por consola
+        # Entrada de hechos por consola
         hechos_dict = {
             "conexion_lenta": input("¿La conexión es lenta? ").strip().lower() == "true",
             "sin_internet": input("¿No hay acceso a Internet? ").strip().lower() == "true",
@@ -30,17 +29,17 @@ def main():
             "repetidor_cubre_zona_ok": input("¿El repetidor cubre la zona correctamente? ").strip().lower() == "true"
         }
 
-        # Crear instancia de hechos
-        hechos = HechosObservables(**hechos_dict)
-
-        # Crear motor de diagnóstico
-        motor = MotorDiagnosticoDesdeArchivo(hechos)
+        # Crear motor de diagnóstico con el diccionario directamente
+        motor = MotorInferencia(hechos_dict)
 
         # Ejecutar diagnóstico
         resultado = motor.diagnosticar()
 
         print("\n=== Resultado del diagnóstico ===")
-        print(resultado)
+        print("Causa probable:", resultado["causa_probable"])
+        print("Sugerencias:")
+        for sug in resultado["sugerencias"]:
+            print("-", sug)
 
     except Exception as e:
         Logs_Error.CapturarEvento("MainTerminal", "main", str(e))
