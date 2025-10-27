@@ -1,0 +1,111 @@
+[2025-10-22 18:08:21] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 18:09:27] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 18:10:11] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 18:32:32] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 18:39:07] [ERROR] MotorDiagnosticoDesdeArchivo.__init__: 11 validation errors for HechosObservables
+solo_un_dispositivo_afectado
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+router_encendido
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+cable_ethernet_usado
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+firmware_router_actualizado
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+distancia_router_lejana
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+reinicio_router_reciente
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+drivers_red_ok
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+cable_ethernet_ok
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+adaptador_red_funcional
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+puerto_red_dispositivo_funcional
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+repetidor_cubre_zona_ok
+  Field required [type=missing, input_value={'conexion_lenta': True, ...e, 'wifi_visible': True}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+[2025-10-22 20:16:10] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 20:16:23] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-22 20:16:33] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:21:32] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:21:57] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:22:03] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:22:07] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:27:47] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:28:16] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:40:19] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:40:22] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:45:00] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:03:12] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 19:29:48] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:36:56] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:37:24] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 20:21:55] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:22] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:25] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:48] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:23:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:26:29] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:30:00] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:31:25] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:37:12] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:18] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:24] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:31] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:31] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:57] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:45:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:46:14] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:47:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:47:55] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:55:11] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:58:49] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:03:41] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:10:18] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:46:08] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 21:46:14] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:10:11] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:20:57] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:21:26] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 23:05:31] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:05:39] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:05:42] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:06:13] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:06:57] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:08:40] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:08:46] [ERROR] MainFlash.diagnostico: 'str' object has no attribute 'get'
+[2025-10-26 23:16:17] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:16:28] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:17:07] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:17:31] [ERROR] MainFlash.diagnostico: name 'MotorDiagnosticoDesdeArchivo' is not defined
+[2025-10-26 23:32:04] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:32:18] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:32:48] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:34:36] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 23:37:34] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:37:37] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:37:41] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:38:44] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:43:00] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:46:17] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:34] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:36] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:39] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:42] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:47:44] [ERROR] SpeedTestConexion.medir: Speedtest.download() got an unexpected keyword argument 'timeout'
+[2025-10-26 23:50:25] [ERROR] SpeedTestConexion.medir: Expecting value: line 1 column 1 (char 0)
+[2025-10-26 23:54:24] [ERROR] SpeedTestConexion.medir: Expecting value: line 1 column 1 (char 0)

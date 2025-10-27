@@ -3,13 +3,14 @@ import datetime
 
 class Logs_Error:
     """
-    Clase para registrar errores del sistema experto en un archivo de log.
+    Clase para registrar errores y eventos del sistema experto en un archivo de log.
     """
 
     @staticmethod
-    def CapturarEvento(clase, metodo, mensaje):
+    def CapturarEvento(clase, metodo, mensaje, tipo="ERROR"):
         """
-        Registra un evento o error en el archivo logs/errores.log
+        Registra un evento o error en el archivo logs/errores.log.
+        tipo puede ser: INFO, WARNING o ERROR.
         """
         try:
             # Crear carpeta de logs si no existe
@@ -19,9 +20,12 @@ class Logs_Error:
             # Ruta completa del archivo de log
             ruta = os.path.join(log_dir, "errores.log")
 
-            # Escribir el error con marca de tiempo
+            # Fecha y hora formateadas
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+            # Escribir el evento en el archivo
             with open(ruta, "a", encoding="utf-8") as f:
-                f.write(f"[{datetime.datetime.now()}] {clase}.{metodo}: {mensaje}\n")
+                f.write(f"[{timestamp}] [{tipo}] {clase}.{metodo}: {mensaje}\n")
 
         except Exception as e:
-            print(f"Error al registrar evento: {e}")
+            print(f"⚠️ Error al registrar evento: {e}")
