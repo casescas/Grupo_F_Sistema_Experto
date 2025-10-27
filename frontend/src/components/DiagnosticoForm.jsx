@@ -57,7 +57,7 @@ export default function DiagnosticoForm() {
     if (tipo === "sin_internet") hechosConTipo.sin_internet = true;
     if (tipo === "lento") hechosConTipo.conexion_lenta = true;
     if (tipo === "cortes") hechosConTipo.desconexion_intermittente = true;
-    if (tipo === "wifi") hechosConTipo.wifi_visible = false;
+    if (tipo === "wifi") hechosConTipo.problemas_wifi = true;
 
     setPayloadDebug(hechosConTipo);
 
@@ -93,49 +93,62 @@ export default function DiagnosticoForm() {
           <option value="sin_internet">No tengo internet</option>
           <option value="lento">Internet lento</option>
           <option value="cortes">Cortes intermitentes</option>
-          <option value="wifi">Problemas con WiFi</option>
+          <option value="wifi">Problemas de WiFi</option>
         </select>
       </div>
 
-      {/* SIN INTERNET */}
+      {/* === NO TENGO INTERNET === */}
       {tipo === "sin_internet" && (
         <>
           <Divider />
           <div style={row}>
-            <div style={label}>Router con luces normales</div>
+            <div style={label}>¿Todas las luces del router encendidas?</div>
             <div style={chipWrap}>
               <div
-                style={chip(hechos.router_luces_normales === true)}
-                onClick={() => setBoolChip("router_luces_normales", true)}
+                style={chip(hechos.router_luces_todas === true)}
+                onClick={() => setBoolChip("router_luces_todas", true)}
               >Sí</div>
               <div
-                style={chip(hechos.router_luces_normales === false)}
-                onClick={() => setBoolChip("router_luces_normales", false)}
+                style={chip(hechos.router_luces_todas === false)}
+                onClick={() => setBoolChip("router_luces_todas", false)}
               >No</div>
             </div>
           </div>
 
           <div style={row}>
-            <div style={label}>WiFi visible</div>
+            <div style={label}>¿Otros dispositivos sin internet?</div>
             <div style={chipWrap}>
               <div
-                style={chip(hechos.wifi_visible === true)}
-                onClick={() => setBoolChip("wifi_visible", true)}
+                style={chip(hechos.otros_sin_internet === true)}
+                onClick={() => setBoolChip("otros_sin_internet", true)}
               >Sí</div>
               <div
-                style={chip(hechos.wifi_visible === false)}
-                onClick={() => setBoolChip("wifi_visible", false)}
+                style={chip(hechos.otros_sin_internet === false)}
+                onClick={() => setBoolChip("otros_sin_internet", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿Reiniciaste el router recientemente?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.reinicio_router_reciente === true)}
+                onClick={() => setBoolChip("reinicio_router_reciente", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.reinicio_router_reciente === false)}
+                onClick={() => setBoolChip("reinicio_router_reciente", false)}
               >No</div>
             </div>
           </div>
         </>
       )}
 
-      {/* INTERNET LENTO */}
+      {/* === INTERNET LENTO === */}
       {tipo === "lento" && (
         <>
           <Divider />
-
           <button
             onClick={async () => {
               const data = await ejecutarSpeedTest();
@@ -157,69 +170,125 @@ export default function DiagnosticoForm() {
           </button>
 
           <div style={row}>
-            <div style={label}>Velocidad detectada</div>
-            <div>{hechos.velocidad_bajada_mbps ?? "—"} Mbps</div>
-          </div>
-
-          <div style={row}>
-            <div style={label}>Ping detectado</div>
-            <div>{hechos.velocidad_ping_ms ?? "—"} ms</div>
-          </div>
-
-          <div style={row}>
-            <div style={label}>Muchos dispositivos conectados</div>
+            <div style={label}>¿Muchos dispositivos conectados?</div>
             <div style={chipWrap}>
               <div
                 style={chip(hechos.otros_dispositivos_conectados === true)}
-                onClick={() =>
-                  setBoolChip("otros_dispositivos_conectados", true)
-                }
+                onClick={() => setBoolChip("otros_dispositivos_conectados", true)}
               >Sí</div>
               <div
                 style={chip(hechos.otros_dispositivos_conectados === false)}
-                onClick={() =>
-                  setBoolChip("otros_dispositivos_conectados", false)
-                }
+                onClick={() => setBoolChip("otros_dispositivos_conectados", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿Lentitud al ver videos o streaming?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.streaming_lento === true)}
+                onClick={() => setBoolChip("streaming_lento", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.streaming_lento === false)}
+                onClick={() => setBoolChip("streaming_lento", false)}
               >No</div>
             </div>
           </div>
         </>
       )}
 
-      {/* CORTES */}
+      {/* === CORTES INTERMITENTES === */}
       {tipo === "cortes" && (
         <>
           <Divider />
           <div style={row}>
-            <div style={label}>¿Desconexión intermitente?</div>
+            <div style={label}>¿Los cortes ocurren solo por WiFi?</div>
             <div style={chipWrap}>
               <div
-                style={chip(hechos.desconexion_intermittente === true)}
-                onClick={() => setBoolChip("desconexion_intermittente", true)}
+                style={chip(hechos.cortes_wifi_solo === true)}
+                onClick={() => setBoolChip("cortes_wifi_solo", true)}
               >Sí</div>
               <div
-                style={chip(hechos.desconexion_intermittente === false)}
-                onClick={() => setBoolChip("desconexion_intermittente", false)}
+                style={chip(hechos.cortes_wifi_solo === false)}
+                onClick={() => setBoolChip("cortes_wifi_solo", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿Sucede principalmente en horarios pico?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.horario_pico === true)}
+                onClick={() => setBoolChip("horario_pico", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.horario_pico === false)}
+                onClick={() => setBoolChip("horario_pico", false)}
               >No</div>
             </div>
           </div>
         </>
       )}
 
-      {/* WIFI */}
+      {/* === PROBLEMAS DE WIFI === */}
       {tipo === "wifi" && (
         <>
           <Divider />
           <div style={row}>
-            <div style={label}>WiFi visible</div>
+            <div style={label}>¿El WiFi se desconecta frecuentemente?</div>
             <div style={chipWrap}>
               <div
-                style={chip(hechos.wifi_visible === true)}
-                onClick={() => setBoolChip("wifi_visible", true)}
+                style={chip(hechos.wifi_se_cae === true)}
+                onClick={() => setBoolChip("wifi_se_cae", true)}
               >Sí</div>
               <div
-                style={chip(hechos.wifi_visible === false)}
-                onClick={() => setBoolChip("wifi_visible", false)}
+                style={chip(hechos.wifi_se_cae === false)}
+                onClick={() => setBoolChip("wifi_se_cae", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿No aparece tu red WiFi en la lista?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.wifi_no_visible === true)}
+                onClick={() => setBoolChip("wifi_no_visible", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.wifi_no_visible === false)}
+                onClick={() => setBoolChip("wifi_no_visible", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿Funciona bien cerca del router?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.funciona_cerca === true)}
+                onClick={() => setBoolChip("funciona_cerca", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.funciona_cerca === false)}
+                onClick={() => setBoolChip("funciona_cerca", false)}
+              >No</div>
+            </div>
+          </div>
+
+          <div style={row}>
+            <div style={label}>¿Otros dispositivos también presentan cortes?</div>
+            <div style={chipWrap}>
+              <div
+                style={chip(hechos.otros_cortes_wifi === true)}
+                onClick={() => setBoolChip("otros_cortes_wifi", true)}
+              >Sí</div>
+              <div
+                style={chip(hechos.otros_cortes_wifi === false)}
+                onClick={() => setBoolChip("otros_cortes_wifi", false)}
               >No</div>
             </div>
           </div>
@@ -259,15 +328,10 @@ export default function DiagnosticoForm() {
       {resultado && (
         <div style={{ marginTop: 22 }}>
           <Divider />
-
           <h4>Causa probable</h4>
-          <div style={{ fontWeight: 700 }}>
-            {resultado.causa_probable}
-          </div>
+          <div style={{ fontWeight: 700 }}>{resultado.causa_probable}</div>
 
           <h4>Sugerencias</h4>
-
-          {/* Evita error .map */}
           {Array.isArray(resultado.sugerencias) ? (
             <ul>
               {resultado.sugerencias.map((s, i) => (
@@ -278,13 +342,6 @@ export default function DiagnosticoForm() {
             <p>{resultado.sugerencias}</p>
           ) : (
             <p>No se proporcionaron sugerencias.</p>
-          )}
-
-          {resultado.IMPORTANTE && (
-            <>
-              <h4>Asistencia IA</h4>
-              <p>{resultado.IMPORTANTE[1]}</p>
-            </>
           )}
         </div>
       )}
