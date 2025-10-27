@@ -1,144 +1,74 @@
 import json
-import Controller_Error
 from hechos import HechosObservables
 from ChatGemini import GeminiConnector
-from SpeedTest import SpeedTestConexion
-from pydantic import ValidationError
-
 
 class MotorDiagnosticoDesdeArchivo:
-    """
-    Motor principal del sistema experto.
-    Evalúa los hechos observables contra las reglas y consulta Gemini si no hay coincidencias.
-    """
-
     def __init__(self, hechos_data, ruta_reglas="reglas_diagnostico_red.json"):
-        self.speedtest = SpeedTestConexion()
+        self.hechos = HechosObservables(**hechos_data)
         self.reglas = self.cargar_reglas(ruta_reglas)
 
-        try:
-            # ✅ Acepta tanto un dict como una instancia de HechosObservables
-            if isinstance(hechos_data, HechosObservables):
-                self.hechos = hechos_data
-            elif isinstance(hechos_data, dict):
-                self.hechos = HechosObservables(**hechos_data)
-            else:
-                raise TypeError(f"Tipo no válido para hechos_data: {type(hechos_data)}")
-
-        except (ValidationError, TypeError, Exception) as e:
-            Controller_Error.Logs_Error.CapturarEvento(
-                clase="MotorDiagnosticoDesdeArchivo",
-                metodo="__init__",
-                mensaje=str(e)
-            )
-            self.hechos = None
-
     def cargar_reglas(self, ruta):
-        try:
-            with open(ruta, "r", encoding="utf-8") as f:
-                return json.load(f)
-        except Exception as error:
-            Controller_Error.Logs_Error.CapturarEvento(
-                clase="MotorDiagnosticoDesdeArchivo",
-                metodo="cargar_reglas",
-                mensaje=str(error)
-            )
-            return []
+        with open(ruta, "r", encoding="utf-8") as f:
+            return json.load(f)
 
     def diagnosticar(self):
-        """
-        Recorre las reglas y aplica el diagnóstico basado en coincidencias.
-        """
-        try:
-            if not self.hechos:
-                return {"causa_probable": "Error en los hechos de entrada"}
+        hechos_dict = self.hechos.model_dump(exclude_none=True)
 
-            hechos_dict = self.hechos.model_dump(exclude_none=True)
+        # Primero intenta reglas
+        for regla in self.reglas:
+            if self.evaluar_regla(hechos_dict, regla):
+                sugerencias_ia = self.consulta_ia(self.hechos)
+                return {
+                    "causa_probable": regla["causa"],
+                    "sugerencias": regla["sugerencias"] + sugerencias_ia
+                }
 
-            for regla in self.reglas:
-                if self.evaluar_regla(hechos_dict, regla):
-                    return self.formar_respuesta(regla)
-
-            # Si no hay coincidencias, consulta Gemini
-            return self.respuesta_gemini()
-
-        except Exception as error:
-            Controller_Error.Logs_Error.CapturarEvento(
-                clase="MotorDiagnosticoDesdeArchivo",
-                metodo="diagnosticar",
-                mensaje=str(error)
-            )
-            return {
-                "causa_probable": "Error en el diagnóstico",
-                "sugerencias": ["Ocurrió un error al procesar las reglas."]
-            }
+        # Si no hay regla -> solo IA
+        sugerencias_ia = self.consulta_ia(self.hechos)
+        return {
+            "causa_probable": "Diagnóstico asistido por IA",
+            "sugerencias": sugerencias_ia
+        }
 
     def evaluar_regla(self, hechos_dict, regla):
-        """
-        Evalúa si los hechos cumplen las condiciones de una regla.
-        """
-        condiciones = regla.get("condiciones", {})
-
-        for clave, valor in condiciones.items():
-            fact_value = hechos_dict.get(clave)
-
-            if fact_value is None:
+        for clave, valor in regla["condiciones"].items():
+            if clave not in hechos_dict:
                 return False
 
-            if isinstance(valor, bool) and fact_value != valor:
-                return False
-
-            if isinstance(valor, str):
-                try:
-                    operador = valor[0]
-                    umbral = float(valor[1:].strip())
-
-                    if operador == "<" and not fact_value < umbral:
-                        return False
-                    elif operador == ">" and not fact_value > umbral:
-                        return False
-                    elif operador == "=" and not fact_value == umbral:
-                        return False
-                except Exception as e:
-                    Controller_Error.Logs_Error.CapturarEvento(
-                        clase="MotorDiagnosticoDesdeArchivo",
-                        metodo="evaluar_regla",
-                        mensaje=str(e)
-                    )
+            recibido = hechos_dict[clave]
+            if isinstance(valor, str) and valor[0] in "<>=":
+                operador = valor[0]
+                umbral = float(valor[1:])
+                if operador == "<" and not recibido < umbral:
+                    return False
+                if operador == ">" and not recibido > umbral:
+                    return False
+                if operador == "=" and not recibido == umbral:
+                    return False
+            else:
+                if recibido != valor:
                     return False
 
         return True
 
-    def formar_respuesta(self, regla):
-        """
-        Construye la respuesta final cuando una regla coincide.
-        """
-        return {
-            "causa_probable": regla.get("causa", "Causa desconocida"),
-            "sugerencias": regla.get("sugerencias", [])
-        }
-
-    def respuesta_gemini(self):
-        """
-        Consulta a Gemini cuando no hay coincidencias en las reglas.
-        """
+    def consulta_ia(self, hechos):
         gemini = GeminiConnector()
-        try:
-            respuesta = gemini.consultar_gemini_con_pasos(self.hechos)
-            return {
-                "causa_probable": "No se encontró una coincidencia en las reglas.",
-                "IMPORTANTE": [
-                    "Se solicitó asistencia a Gemini.",
-                    respuesta.get("respuesta", "Sin respuesta de Gemini.")
-                ]
-            }
-        except Exception as error:
-            Controller_Error.Logs_Error.CapturarEvento(
-                clase="MotorDiagnosticoDesdeArchivo",
-                metodo="respuesta_gemini",
-                mensaje=str(error)
-            )
-            return {
-                "causa_probable": "Asistencia Gemini no disponible",
-                "sugerencias": ["Verifique la conexión o API Key."]
-            }
+        respuesta = gemini.consultar_gemini_con_pasos(hechos)
+
+        # Extraer texto de IA
+        texto = respuesta.get("respuesta", "")
+
+        # Convertir texto multilinea en array
+        sugerencias = [
+            line.strip("-•1234567890. ")
+            for line in texto.split("\n")
+            if line.strip()
+        ]
+
+        # Garantiza siempre al menos 1 sugerencia
+        if not sugerencias:
+            sugerencias = [
+                "No pude interpretar el problema. Verifique cables, router y proveedor."
+            ]
+
+        return sugerencias

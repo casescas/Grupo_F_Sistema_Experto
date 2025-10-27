@@ -39,3 +39,45 @@ repetidor_cubre_zona_ok
 [2025-10-22 20:16:10] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 [2025-10-22 20:16:23] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
 [2025-10-22 20:16:33] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:21:32] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:21:57] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:22:03] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:22:07] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:27:47] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:28:16] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:40:19] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:40:22] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 18:45:00] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:03:12] [ERROR] SpeedTestConexion.medir: HTTP Error 403: Forbidden
+[2025-10-26 19:29:48] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:36:56] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 19:37:24] [ERROR] GeminiConnector.consultar_gemini_con_pasos: 404 models/gemini-2.0-pro is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 20:21:55] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:22] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:25] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:22:48] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:23:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:26:29] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'client_options'
+[2025-10-26 20:30:00] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:31:25] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:37:12] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:18] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:24] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:31] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:31] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:43:57] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:45:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:46:14] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:47:32] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:47:55] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:55:11] [ERROR] MainFlash.diagnostico: GenerativeModel.__init__() got an unexpected keyword argument 'model'
+[2025-10-26 20:58:49] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:03:41] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:10:18] [ERROR] MainFlash.diagnostico: ❌ API KEY no encontrada en archivo.env
+[2025-10-26 21:46:08] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 21:46:14] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash-latest is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:10:11] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:20:57] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+[2025-10-26 22:21:26] [ERROR] MainFlash.diagnostico: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.

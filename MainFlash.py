@@ -11,7 +11,7 @@ import datetime
 # ======================================================
 app = FastAPI(
     title="Diagnóstico de fallas en redes domésticas - Sistema Experto",
-    version="0.2.0",
+    version="0.3.0",
     description="Alumnos: Cristian Couto, Valeria Villega, Diego Estrada"
 )
 
@@ -19,7 +19,7 @@ app = FastAPI(
 # CORS (Permite conexión desde React)
 # ======================================================
 origins = [
-    "http://localhost:3000",   # React Dev
+    "http://localhost:3000",
     "http://127.0.0.1:3000"
 ]
 
@@ -55,16 +55,17 @@ def diagnostico(hechos: HechosObservables):
         return {
             "status": "ERROR",
             "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "detalle": str(e)
+            "detalle": "Se produjo un error durante el diagnóstico.",
+            "debug": str(e)
         }
 
 # ======================================================
-# ENDPOINT: SPEEDTEST (NUEVO)
+# ENDPOINT: SPEEDTEST
 # ======================================================
 @app.get("/speedtest")
 def api_speedtest():
     """
-    Ejecuta un test de velocidad local usando el módulo SpeedTest.py
+    Ejecuta un test de velocidad local usando SpeedTest.py
     """
     try:
         resultado = run_speedtest()
@@ -80,11 +81,12 @@ def api_speedtest():
         return {
             "status": "ERROR",
             "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "detalle": str(e)
+            "detalle": "Error al ejecutar SpeedTest.",
+            "debug": str(e)
         }
 
 # ======================================================
-# PING DE ESTADO
+# HEALTH CHECK
 # ======================================================
 @app.get("/")
 def estado():
@@ -93,6 +95,6 @@ def estado():
     """
     return {
         "status": "Servidor activo",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
