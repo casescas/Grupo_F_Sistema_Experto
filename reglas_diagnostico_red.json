@@ -1,0 +1,217 @@
+[
+  {
+    "causa": "Router apagado o bloqueado",
+    "condiciones": {
+      "router_encendido": false
+    },
+    "sugerencias": [
+      "Verificar que el router esté encendido.",
+      "Revisar el enchufe o la regleta eléctrica.",
+      "Probar otra toma de corriente o adaptador."
+    ]
+  },
+  {
+    "causa": "Problema con el router (luces anormales)",
+    "condiciones": {
+      "sin_internet": true,
+      "router_luces_normales": false
+    },
+    "sugerencias": [
+      "Reiniciar el router y esperar 5 minutos.",
+      "Verificar el cableado del módem o puerto WAN.",
+      "Comprobar la fuente de alimentación del router."
+    ]
+  },
+  {
+    "causa": "Problema de señal Wi-Fi",
+    "condiciones": {
+      "sin_internet": true,
+      "wifi_visible": false
+    },
+    "sugerencias": [
+      "Asegurarse de que el Wi-Fi esté activado.",
+      "Reiniciar el router y reconectar el dispositivo.",
+      "Verificar nombre y contraseña del SSID."
+    ]
+  },
+  {
+    "causa": "Problema del proveedor",
+    "condiciones": {
+      "sin_internet": true,
+      "router_luces_normales": true,
+      "cable_ethernet_usado": true
+    },
+    "sugerencias": [
+      "Contactar al proveedor del servicio de internet.",
+      "Verificar si existen cortes reportados en la zona.",
+      "Esperar el restablecimiento del servicio."
+    ]
+  },
+  {
+    "causa": "Cable Ethernet defectuoso",
+    "condiciones": {
+      "cable_ethernet_ok": false,
+      "cable_ethernet_usado": true
+    },
+    "sugerencias": [
+      "Cambiar el cable por uno nuevo.",
+      "Evitar doblar el cable o colocarlo bajo tensión.",
+      "Probar otro puerto Ethernet del router."
+    ]
+  },
+  {
+    "causa": "Puerto de red defectuoso",
+    "condiciones": {
+      "puerto_red_dispositivo_funcional": false,
+      "cable_ethernet_usado": true
+    },
+    "sugerencias": [
+      "Probar otro puerto LAN en el router.",
+      "Verificar el adaptador de red del dispositivo.",
+      "Consultar servicio técnico si persiste."
+    ]
+  },
+  {
+    "causa": "Saturación de red doméstica",
+    "condiciones": {
+      "conexion_lenta": true,
+      "otros_dispositivos_conectados": true
+    },
+    "sugerencias": [
+      "Desconectar dispositivos no esenciales.",
+      "Evitar streaming simultáneo en varios equipos.",
+      "Limitar descargas automáticas o actualizaciones."
+    ]
+  },
+  {
+    "causa": "Distancia excesiva al router",
+    "condiciones": {
+      "distancia_router_lejana": true,
+      "wifi_visible": true
+    },
+    "sugerencias": [
+      "Acercar el dispositivo al router.",
+      "Evitar paredes gruesas o electrodomésticos cercanos.",
+      "Usar un repetidor o adaptador Wi-Fi de mayor alcance."
+    ]
+  },
+  {
+    "causa": "Ping elevado (latencia alta)",
+    "condiciones": {
+      "velocidad_ping_ms": ">50"
+    },
+    "sugerencias": [
+      "Usar conexión por cable para juegos o videollamadas.",
+      "Cerrar aplicaciones que consumen ancho de banda.",
+      "Reiniciar el router si la latencia se mantiene alta."
+    ]
+  },
+  {
+    "causa": "Velocidad de bajada baja",
+    "condiciones": {
+      "velocidad_bajada_mbps": "<15"
+    },
+    "sugerencias": [
+      "Verificar si el plan contratado cubre tus necesidades.",
+      "Controlar el consumo de ancho de banda en otros equipos.",
+      "Cambiar la ubicación o antenas del router."
+    ]
+  },
+  {
+    "causa": "Interferencia o desconexión intermitente general",
+    "condiciones": {
+      "desconexion_intermittente": true,
+      "cortes_wifi_solo": false,
+      "horario_pico": true
+    },
+    "sugerencias": [
+      "Verificar la estabilidad de la red del proveedor.",
+      "Evitar conexiones críticas durante horarios pico.",
+      "Probar conexión por cable para descartar interferencias."
+    ]
+  },
+  {
+    "causa": "Cable correcto, Wi-Fi inestable",
+    "condiciones": {
+      "cable_ok_wifi_mal": true
+    },
+    "sugerencias": [
+      "Usar conexión por cable Ethernet para mayor estabilidad.",
+      "Cambiar el canal Wi-Fi (1, 6 o 11).",
+      "Utilizar la banda de 5 GHz si está disponible."
+    ]
+  },
+  {
+    "causa": "Latencia elevada en juegos online",
+    "condiciones": {
+      "latencia_juegos": true
+    },
+    "sugerencias": [
+      "Conectarse por cable Ethernet.",
+      "Cerrar descargas en segundo plano.",
+      "Evitar el uso de Wi-Fi 2.4 GHz.",
+      "Reiniciar el router si la latencia persiste."
+    ]
+  },
+  {
+    "causa": "Problema de streaming en SmartTV",
+    "condiciones": {
+      "smarttv_falla_stream": true
+    },
+    "sugerencias": [
+      "Activar ajuste automático de resolución.",
+      "Conectar la TV por cable para mayor estabilidad.",
+      "Evitar el uso simultáneo de múltiples streamings.",
+      "Actualizar firmware del SmartTV."
+    ]
+  },
+  {
+    "causa": "Resolución DNS parcial",
+    "condiciones": {
+      "web_cae_whatsapp_ok": true
+    },
+    "sugerencias": [
+      "Cambiar DNS a 8.8.8.8 o 1.1.1.1.",
+      "Reiniciar el stack TCP/IP del sistema.",
+      "Reiniciar el router.",
+      "Verificar que no haya configuraciones de proxy activas."
+    ]
+  },
+  {
+    "causa": "Interferencia al mover el dispositivo",
+    "condiciones": {
+      "interferencia_movimiento": true
+    },
+    "sugerencias": [
+      "Evitar zonas con paredes gruesas o metales.",
+      "Ajustar la ubicación del router a una zona central.",
+      "Conectar por cable si es posible."
+    ]
+  },
+  {
+    "causa": "Inestabilidad WiFi por interferencias locales",
+    "condiciones": {
+      "desconexion_intermittente": true,
+      "cortes_wifi_solo": true,
+      "horario_pico": false
+    },
+    "sugerencias": [
+      "Cambiar el canal Wi-Fi (1, 6 u 11).",
+      "Ubicar el router lejos de televisores o microondas.",
+      "Evitar interferencias moviendo el router a una zona más abierta."
+    ]
+  },
+  {
+    "causa": "Señal débil o interferencia Wi-Fi local",
+    "condiciones": {
+      "problemas_wifi": true,
+      "wifi_se_cae": true,
+      "funciona_cerca": true
+  },
+    "sugerencias": [
+      "Ubicar el router en una mejor posición.",
+      "Usar la banda de 5 GHz si está disponible."
+    ]
+  }
+
+]
